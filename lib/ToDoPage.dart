@@ -15,7 +15,25 @@ class _TodoPageState extends State<TodoPage> {
         title: const Text("ToDo 앱"),
       ),
       body: Column(
-        
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: Row(
+              children: [
+                Expanded(child: TextField(
+                  decoration: InputDecoration(
+                    hintText: "할일을 입력하세요",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10)
+                    ),
+                    filled: true,
+                    fillColor: Colors.grey[100]
+                  ),
+                ))
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
