@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:untitled/drawer.dart';
 
 class TodoPage extends StatefulWidget {
   const TodoPage({super.key});
@@ -30,7 +31,17 @@ class _TodoPageState extends State<TodoPage> {
       });
     }
   }
+  void _deleteTodo(int index) async {
+    final removed = todos[index];
+    setState(() {
+      todos.remove(index);
+    });
+    _saveTodos();
 
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('${removed}삭제됨'))
+    );
+  }
 
   void _saveTodos() async {
     final prefs = await SharedPreferences.getInstance();
@@ -56,6 +67,7 @@ class _TodoPageState extends State<TodoPage> {
       appBar: AppBar(
         title: const Text("ToDo 앱"),
       ),
+      drawer: const MyDrawer(),
       body: Column(
         children: [
           Padding(
@@ -99,6 +111,7 @@ class _TodoPageState extends State<TodoPage> {
                       ),
                       child: ListTile(
                         title: Text(todos[index]),
+                        onLongPress: ()=> _deleteTodo(index),
                       ),
                     );
                   }

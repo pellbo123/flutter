@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: "/",
       routes: {
-        "/": (context) => const LayoutPage(),
+        "/": (context) => const TodoPage(),
         "/setting": (context) => const SettingPage(),
         "/popup": (context) => const PopupPage(),
         "/flex": (context) => const FlexPage(),
