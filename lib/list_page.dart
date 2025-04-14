@@ -9,7 +9,7 @@ class ListPage extends StatefulWidget {
 }
 
 class _ListPageState extends State<ListPage> {
-  // hyundai 리스트 선언
+  // sukka 리스트 선언
   List<String> sukka = [];
   final TextEditingController _controller = TextEditingController(); // 입력 컨트롤러
   String text = ""; // 텍스트 변수
@@ -39,7 +39,7 @@ class _ListPageState extends State<ListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Hyundai 리스트"),
+        title: const Text("sukka 리스트"),
       ),
       body: Column(
         children: [
