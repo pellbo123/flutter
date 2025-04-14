@@ -87,6 +87,7 @@ class _TodoPageState extends State<TodoPage> {
               children: [
                 Expanded(child: TextField(
                   controller: _controller,
+                  onSubmitted: _addTodo,
                   decoration: InputDecoration(
                     hintText: "할일을 입력하세요",
                     border: OutlineInputBorder(
@@ -128,10 +129,17 @@ class _TodoPageState extends State<TodoPage> {
 
                       }
                         ),
-
-
-                        title: Text(todo["text"]),
-                        onLongPress: ()=> _deleteTodo(index),
+                        title: Text(
+                          todo["text"],
+                          style: TextStyle(
+                            fontSize: 18,
+                            decoration: todo["done"]
+                              ? TextDecoration.lineThrough
+                              : TextDecoration.none,
+                            color: todo['done'] ? Colors.grey : Colors.black
+                          ),
+                        ),
+                          onLongPress: () => _deleteTodo(index),
                       ),
                     );
                   }
